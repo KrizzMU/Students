@@ -24,19 +24,18 @@
         static void Main(string[] args)
         {
             Baza baza = new Baza();
-            int otvet=0;            
+            int otvet=0;
             while (otvet != 3)
             {
                 Console.WriteLine("\nЧто вы хотите сделать?\n Добавить (1) \t Сведения (2) \t Выход (3)\n");
                 otvet = Int32.Parse(Console.ReadLine());
-                //Console.Clear();
-                BinaryFormatter formatter = new BinaryFormatter();        
+                BinaryFormatter formatter = new BinaryFormatter();
                 using (FileStream fs = new FileStream("stud.dat", FileMode.OpenOrCreate))
                 {
-                    baza = (Baza)formatter.Deserialize(fs);                                   
+                    baza = (Baza)formatter.Deserialize(fs);
                 }
                 if (otvet == 1)
-                {                    
+                {
                         Console.Clear();
                         Student student = new Student();
                         Console.WriteLine("Введите фамилие имя и группу студента через пробел:");
@@ -49,7 +48,7 @@
                         Console.Clear();
                 }
                 else if (otvet == 2)
-                {                  
+                {
                     Console.WriteLine("\n");
                     Console.WriteLine("Вывести информацию(1), Удалить(2), Изменить(3), Назад(4)\n");
                     int und = Int32.Parse(Console.ReadLine());
@@ -63,7 +62,7 @@
                             foreach (var i in baza.students)
                             {
                                 Console.WriteLine("{0} {1} - {2}", i.secondName, i.name, i.group);
-                            }                            
+                            }
                         }
                         else  if(gg==2)
                         {
@@ -169,7 +168,7 @@
                         }
 
                         Console.Clear();
-                    } 
+                    }
                     else if(und==3)
                     {
                         Console.WriteLine("\n");
@@ -183,7 +182,7 @@
                         foreach (var i in baza.students)
                         {
                             if (i.name == newstudent.name && i.secondName == newstudent.secondName)
-                            {                                
+                            {
                                 int k = baza.students.IndexOf(i);
                                 Console.WriteLine("{0} {1} {2}\nЧто вы хотите изменить?\n (1)Имя, (2)Фамилию, (3)Группу, (4)Все данные, Выход(5)\n", i.name, i.secondName, i.group);
                                 int g = Int32.Parse(Console.ReadLine());
@@ -224,7 +223,7 @@
                 using (FileStream fsi = new FileStream("stud.dat", FileMode.OpenOrCreate))
                 {
                     formatter.Serialize(fsi, baza);
-                }                
+                }
             }
         }
     }
