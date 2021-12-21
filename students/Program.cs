@@ -1,11 +1,11 @@
-﻿    using System;
+    using System;
     using System.IO;
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Collections;
     using System.Collections.Generic;
-using System.Linq;
+    using System.Linq;
 
-namespace students
+    namespace students
     {
     [Serializable]
     class Student
@@ -82,7 +82,7 @@ namespace students
                             }
                         }
 
-                        
+
                     }
                     else if(und==2)
                     {
@@ -96,7 +96,7 @@ namespace students
                             case 1:
                                 Console.WriteLine("Введите фамилие:");
                                 string secondName = Console.ReadLine();
-                               
+
                                 foreach (Student i in baza.students)
                                 {
                                     if (i.secondName == secondName)
@@ -108,14 +108,14 @@ namespace students
                                             baza.students.Remove(i);
                                             break;
                                         }
-                                                                                
+
                                     }
                                 }
                                 break;
                             case 2:
                                 Console.WriteLine("Введите Имя:");
                                 Name = Console.ReadLine();
-                                
+
                                 foreach (var i in baza.students)
                                 {
                                     if (i.name == Name)
